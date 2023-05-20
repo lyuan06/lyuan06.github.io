@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>SpringMVC获取数据</title>
+      <link href="/2023/05/20/SpringMVC%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/"/>
+      <url>/2023/05/20/SpringMVC%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE/</url>
+      
+        <content type="html"><![CDATA[<h2 id="获取前端提交的请求数据"><a href="#获取前端提交的请求数据" class="headerlink" title="获取前端提交的请求数据"></a>获取前端提交的请求数据</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloController</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@GetMapping(&quot;/test1&quot;)</span></span><br><span class="line">    <span class="comment">// 方法参数名与请求携带的参数名字相同</span></span><br><span class="line">    <span class="comment">// localhost:8080/user/test1?name=zhang</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">test1</span><span class="params">(String name, Model model)</span>&#123;</span><br><span class="line">        model.addAttribute(<span class="string">&quot;msg&quot;</span>, name);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 方法参数名与请求携带的参数名字不同</span></span><br><span class="line">    <span class="comment">// http://localhost:8888/user/test2?username=zhang</span></span><br><span class="line">    <span class="comment">// 使用@RequestParam注解</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/test2&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">test2</span><span class="params">(<span class="meta">@RequestParam(&quot;username&quot;)</span> String name, Model model )</span>&#123;</span><br><span class="line">        model.addAttribute(<span class="string">&quot;msg&quot;</span>, name);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 方法参数是一个pojo类</span></span><br><span class="line">    <span class="comment">// User类需要提供set方法，请求携带的参数顺序无要求，携带几个参数就有几个参数被赋值</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/test3&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">test3</span><span class="params">(User user)</span>&#123;</span><br><span class="line">        System.out.println(user);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> SpringMVC </category>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SpringMVC转发和重定向</title>
       <link href="/2023/05/18/SpringMVC%E8%BD%AC%E5%8F%91%E5%92%8C%E9%87%8D%E5%AE%9A%E5%90%91/"/>
       <url>/2023/05/18/SpringMVC%E8%BD%AC%E5%8F%91%E5%92%8C%E9%87%8D%E5%AE%9A%E5%90%91/</url>
@@ -144,17 +165,6 @@
     
     
     <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>音乐</title>
       <link href="/music/index.html"/>
       <url>/music/index.html</url>
@@ -166,9 +176,9 @@
     
     
     <entry>
-      <title>电影</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -180,6 +190,17 @@
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电影</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
