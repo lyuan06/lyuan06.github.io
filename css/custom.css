@@ -21,3 +21,40 @@
   [data-theme="dark"] #page-header::before {
     background: transparent !important;
   }
+
+  /* 一级菜单居中 */
+#nav .menus_items {
+    position: absolute !important;
+    width: fit-content !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  /* 子菜单横向展示 */
+  #nav .menus_items .menus_item:hover .menus_item_child {
+    display: flex !important;
+  }
+  /* 这里的2是代表导航栏的第2个元素，即有子菜单的元素，可以按自己需求修改 */
+  .menus_items .menus_item:nth-child(2) .menus_item_child {
+    left: -125px;
+  }
+
+  /* 帧率检测 */
+#fps {
+    position: fixed;
+    /* 指定位置 */
+    left: 10px;
+    bottom: 10px;
+    z-index: 1919810;
+  }
+  [data-theme="light"] #fps {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: var(--backdrop-filter);
+    padding: 4px;
+    border-radius: 4px;
+  }
+  [data-theme="dark"] #fps {
+    background-color: rgba(0, 0, 0, 0.72);
+    backdrop-filter: var(--backdrop-filter);
+    padding: 4px;
+    border-radius: 4px;
+  }
